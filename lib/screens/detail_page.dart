@@ -58,9 +58,13 @@ class DetailScreen extends StatelessWidget {
                       Text('Rating: ${restaurantElement.rating}'),
                     ],
                   ),
-                  const SizedBox(height: 10),
-                  const Text('Deskripsi'),
                   const Divider(color: Colors.grey),
+                  const SizedBox(height: 10),
+                  const Text(
+                    'Deskripsi',
+                    style: TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                  const SizedBox(height: 10),
                   Text(
                     restaurantElement.description,
                     style: Theme.of(context).textTheme.bodyText2,
@@ -68,18 +72,34 @@ class DetailScreen extends StatelessWidget {
                 ],
               ),
             ),
-            Padding(
-              padding: const EdgeInsets.all(8.0),
+            const Padding(
+              padding: EdgeInsets.all(8.0),
               child: Text(
-                "Drink menus",
-                style: Theme.of(context).textTheme.headline6,
+                "Menu",
+                style: TextStyle(fontWeight: FontWeight.bold),
               ),
             ),
-            MenuList(restaurantElement: restaurantElement)
+            const Padding(
+              padding: EdgeInsets.only(left: 8),
+              child: Text(
+                "Food:",
+              ),
+            ),
+            MenuList(menu: restaurantElement.menus.foods),
+            const Padding(
+              padding: EdgeInsets.only(left: 8),
+              child: Text(
+                "Drink:",
+              ),
+            ),
+            MenuList(menu: restaurantElement.menus.drinks),
+
             // MenuList(restaurantElement),
           ],
         ),
       ),
     );
   }
+
+  lismenu(Menus menus) {}
 }
