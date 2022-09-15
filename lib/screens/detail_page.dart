@@ -68,6 +68,8 @@ class DetailScreen extends StatelessWidget {
                   Text(
                     restaurantElement.description,
                     style: Theme.of(context).textTheme.bodyText2,
+                    maxLines: 4,
+                    overflow: TextOverflow.ellipsis,
                   ),
                 ],
               ),
